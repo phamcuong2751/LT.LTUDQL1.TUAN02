@@ -45,12 +45,12 @@ namespace _18600038
             box_Database.Text = $"{_database}";
         }
 
-        private void OK_Button(object sender, MouseButtonEventArgs e)
+        private void OK_Button(object sender, RoutedEventArgs e)
         {
-            Server = box_Server.Text;
-            Database = box_Database.Text;
+                Server = box_Server.Text;
+                Database = box_Database.Text;
 
-            DialogResult = true;
+                DialogResult = true;
         }
     }
 }

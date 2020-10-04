@@ -15,7 +15,7 @@
                HorizontalAlignment="Left" Margin="20 15"/>
 
             <Label Content="Do you really want to exit the program?"
-                   HorizontalContentAlignment="Center"/>
+                   HorizontalContentAlignment="Center" Foreground="#8360F7"/>
             <DockPanel HorizontalAlignment="Right" Margin="0 30 0 0">
                 <Border Height="20" CornerRadius="10" HorizontalAlignment="Right"
                     Background="#8360F7" Width="50" MouseLeftButtonDown="Button_Yes">

@@ -39,12 +39,12 @@
 
             <DockPanel Margin="0 40 0 0">
                 <Border Height="40" CornerRadius="20" 
-                        Background="#8360F7" Width="80"
-                        MouseLeftButtonDown="OK_Button">
+                        Background="#8360F7" Width="80">
                     <Button Content="OK" BorderThickness="0"
                             Background="Transparent" FontWeight="Bold"
                             FontSize="20" Foreground="#F3EAF5"
-                            Style="{StaticResource TabButton}"/>
+                            Style="{StaticResource TabButton}"
+                            Click="OK_Button"/>
                 </Border>
                 
                 <Border Height="40" CornerRadius="20" Margin="50 0 0 0"
