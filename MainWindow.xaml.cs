@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,7 +35,7 @@ namespace _18600038
 
         private void Close_Window(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Do you want really close program!", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show("Do you really want close program!", "Warning", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
                 this.Close();
 
@@ -65,8 +68,31 @@ namespace _18600038
 
         private void GoTo_Setting(object sender, MouseButtonEventArgs e)
         {
-            SettingWindow DialogShow = new SettingWindow();
-            DialogShow.ShowDialog();
+            var server = ConfigurationManager.AppSettings["server"];
+            var db = ConfigurationManager.AppSettings["database"];
+
+            Debug.WriteLine($"Server: {server}, db: {db}");
+
+            var DialogShow = new SettingWindow(server, db);
+
+            
+            if (DialogShow.ShowDialog() == true)
+            {
+                MessageBox.Show($"Server has been changed to: {DialogShow.Server}, database: {DialogShow.Database}");
+
+                // Luu vao app.config 
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["server"].Value = DialogShow.Server;
+                config.AppSettings.Settings["database"].Value = DialogShow.Database;
+                config.Save(ConfigurationSaveMode.Minimal);
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+
+            versionLabel.Content = $"v{version}";
         }
     }
 }

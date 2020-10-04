@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:_18600038"
         mc:Ignorable="d" WindowStyle="None"
         ResizeMode="NoResize"
+        Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         RenderOptions.BitmapScalingMode="HighQuality"
         Title="SettingWindow" Height="450" Width="800">
@@ -21,7 +22,8 @@
                 <TextBlock Text="SERVER:" 
                            FontSize="20"
                            Width="115" Foreground="#5B4DCD"/>
-                <TextBox HorizontalAlignment="Left" 
+                <TextBox Name="box_Server"
+                         HorizontalAlignment="Left" 
                          Width="185" VerticalContentAlignment="Center"
                          Foreground="#5B4DCD"/>
             </DockPanel>
@@ -29,14 +31,16 @@
                 <TextBlock Text="DATABASE:" 
                            FontSize="20"
                            Width="115" Foreground="#5B4DCD"/>
-                <TextBox HorizontalAlignment="Left" 
+                <TextBox Name="box_Database" 
+                         HorizontalAlignment="Left" 
                          Width="185" VerticalContentAlignment="Center"
                          Foreground="#5B4DCD"/>
             </DockPanel>
 
             <DockPanel Margin="0 40 0 0">
                 <Border Height="40" CornerRadius="20" 
-                        Background="#8360F7" Width="80">
+                        Background="#8360F7" Width="80"
+                        MouseLeftButtonDown="OK_Button">
                     <Button Content="OK" BorderThickness="0"
                             Background="Transparent" FontWeight="Bold"
                             FontSize="20" Foreground="#F3EAF5"
