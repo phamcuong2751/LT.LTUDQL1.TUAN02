@@ -40,7 +40,7 @@
             <DockPanel Margin="0 40 0 0">
                 <Border Height="40" CornerRadius="20" 
                         Background="#8360F7" Width="80">
-                    <Button Content="OK" BorderThickness="0"
+                    <Button Content="OK" BorderThickness="0" IsDefault="True"
                             Background="Transparent" FontWeight="Bold"
                             FontSize="20" Foreground="#F3EAF5"
                             Style="{StaticResource TabButton}"
@@ -51,7 +51,7 @@
                         Background="#8360F7" Width="100"
                         HorizontalAlignment="Left">
                     <Button Content="Cancel" BorderThickness="0" 
-                            Click="Close_Window"
+                            Click="Close_Window" IsCancel="True"
                             Background="Transparent" FontWeight="Bold"
                             FontSize="20" Foreground="#F3EAF5"
                             Style="{StaticResource TabButton}"/>

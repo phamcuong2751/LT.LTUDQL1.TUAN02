@@ -36,7 +36,7 @@ namespace _18600038
 
         private void Close_Window(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
